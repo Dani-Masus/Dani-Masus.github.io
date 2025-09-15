@@ -26,6 +26,11 @@ function draw() { //runs over and over
 function DrawTwoCircles() {  //{alt}{shift}{f} = autoformate
   //draw two circles at a fixed location
   //and one at mouse location
+
+  //draw order:
+  //later thing is drawn (further down is drawn())
+  //
+  
   fill(0, 225, 0);
   //  r,   g,   b
   circle(mouseX, mouseY, 30);
