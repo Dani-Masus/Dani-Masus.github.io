@@ -3,32 +3,60 @@
 // sept. 16, 2025
 
 
+
+
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  
 }
 
 function draw() {
   background(220);
 
+  scene();
+}
 
-  fill("#F0F8FF");
 
-  circle(50,50,50);
-  circle(80,50,50);
-  circle(20,50,50);
-  circle(30,30,50);
-  circle(50,78,50);
-  circle(90,30,50);
+
+
+function scene(){
+  //Only background - Start
+  fill("Yellow");
+  stroke("Yellow")
+  circle(50,250,150);// Sun
+
   
-
-  triangle(200, 405, 318, 30, 506, 405);
+  fill("LightGoldenRodYellow ");
+  stroke("LightGoldenRodYellow");
+  triangle(200, 405, 318, 30, 506, 405);// Mountains - shine
   triangle(300, 705, 508, 200, 806, 705);
   triangle(400, 850, 680, 300, 960,850);
   triangle(100, 405, 208, 50, 406, 505);
 
-  ellipse(700,600,600,500);
+  fill("LightCyan");
+  stroke("LightCyan");
+
+  triangle(400, 1200, 680, 300, 960,850);// mountains - Dark
+  triangle(300, 905, 508, 200, 806, 705);
+  triangle(200, 655, 318, 30, 516, 405);
+  triangle(150, 405, 208, 50, 406, 505);
+
+
+  fill("#99ccff");
+  stroke("DarkSlateGray");
+  ellipse(700,600,600,500);// Land
   ellipse(200,600,700,500);
   ellipse(400,750,1500,500);
-  
+
+  fill("");
+  stroke("");
+
+  //ellipse(700,440,400,200);
 }
 
+function protag(){
+
+  circle(200,200,30);
+}
