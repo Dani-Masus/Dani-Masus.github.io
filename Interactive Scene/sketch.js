@@ -44,16 +44,31 @@ function scene(){
   triangle(150, 405, 208, 50, 406, 505);
 
 
-  fill("#99ccff");
-  stroke("DarkSlateGray");
-  ellipse(700,600,600,500);// Land
+  fill("DarkGreen ");
+  stroke("DarkGreen");
+  
+  //ellipse(700,600,600,500);// Land
+
+  rect(450,450,200,200);
+  rect(600,400,200,200);
+
+
+ //fill("YellowGreen ");
+
+
+
   ellipse(200,600,700,500);
+
+  fill("DarkGreen");
+  
+
+
   ellipse(400,750,1500,500);
 
   fill("");
   stroke("");
 
-  //ellipse(700,440,400,200);
+  //ellipse(700,440,300, 50);
 }
 
 function protag(){
