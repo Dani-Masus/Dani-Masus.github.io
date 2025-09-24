@@ -22,7 +22,7 @@ function gradiantBackground(){
   //use a loop (doesn't have to be WHILE) to
   //draw a verticle stack of rectangles
   let y = 0;
-    while (y <= height)
+  while (y <= height)
     noStroke();
     let mappedY = map(y,0,height,0,255);
     fill(mappedY, mappedY, 0);
