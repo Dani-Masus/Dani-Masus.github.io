@@ -34,7 +34,7 @@ function setup() {
     x: 200, y:200,  size:32,
     c: color(random(255),random(255),random(255)),
     timeX: random(50), timeY: random(120),
-    timeOff: 0.44
+    timeOff: 0.01
   };
   ball5 = {
     x: 200, y:200,  size:32,
