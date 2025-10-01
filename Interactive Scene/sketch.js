@@ -14,9 +14,29 @@ function setup() {
 
 function draw() {
   background(220);
-
+  
   scene();
+  protag();
 }
+
+
+
+
+
+
+
+
+function protag(){
+  fill()
+
+  circle(200,200,30);
+}
+
+
+
+
+
+
 
 
 
@@ -44,34 +64,41 @@ function scene(){
   triangle(150, 405, 208, 50, 406, 505);
 
 
-  fill("DarkGreen ");
-  stroke("DarkGreen");
+  fill("Green");
+  noStroke();
+
   
-  //ellipse(700,600,600,500);// Land
+  // Land
 
-  rect(450,450,200,200);
-  rect(600,400,200,200);
+  fill("ForestGreen");
 
+  rect(450,480,200,200);
+  rect(300,450,200,200);
+  rect(0,400,300,500);
 
- //fill("YellowGreen ");
-
-
-
-  ellipse(200,600,700,500);
+  fill("ForestGreen");
+  
+  rect(450,580,200,200);
+  rect(300,550,200,200);
+  rect(0,500,300,500);
 
   fill("DarkGreen");
+  noStroke();
   
+  rect(450,680,200,200);
+  rect(300,650,200,200);
+  rect(0,560,300,500);
 
+  fill("DarkGreen");
+  noStroke();
+  
+  rect(450,780,200,200);
+  rect(300,750,200,200);
+  rect(0,660,300,500);
 
-  ellipse(400,750,1500,500);
-
-  fill("");
-  stroke("");
-
-  //ellipse(700,440,300, 50);
-}
-
-function protag(){
-
-  circle(200,200,30);
+  
+  //Land shine from the sun
+  fill("LightGoldenRodYellow");
+  stroke("LightGoldenRodYellow");
+  rect(0,400,150,20);
 }
