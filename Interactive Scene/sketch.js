@@ -14,9 +14,21 @@ function setup() {
 
 function draw() {
   background(220);
+  fill("Yellow");
+  stroke("Yellow");
+  circle(mouseX, mouseY, 100); // the sun
+
   
-  scene();
-  protag();
+  //Stroke("LightGoldenRodYellow");
+
+  LightLeft();
+
+  noStroke();
+  noFill();
+  
+  lightWorld();
+
+  
 }
 
 
@@ -27,33 +39,35 @@ function draw() {
 
 
 function protag(){
-  fill()
+  fill("Black");
 
-  circle(200,200,30);
+  //circle(50,250,10);
 }
 
 
 
-
-
-
-
-
-
-
-function scene(){
-  //Only background - Start
-  fill("Yellow");
-  stroke("Yellow")
-  circle(50,250,150);// Sun
-
-  
+function lightRight(){
+  //Only sune === protag
   fill("LightGoldenRodYellow ");
   stroke("LightGoldenRodYellow");
-  triangle(200, 405, 318, 30, 506, 405);// Mountains - shine
+  triangle(200, 405, 318, 30, 506, 405);// Mountains - shine right
   triangle(300, 705, 508, 200, 806, 705);
   triangle(400, 850, 680, 300, 960,850);
   triangle(100, 405, 208, 50, 406, 505);
+}
+
+function LightLeft(){
+  strokeWeight(10);
+  fill("Yellow");
+  line(125, 500, 210, 40);
+
+}
+
+
+
+function lightWorld(){
+  //Only background - Start
+  
 
   fill("LightCyan");
   stroke("LightCyan");
@@ -81,6 +95,7 @@ function scene(){
   rect(450,580,200,200);
   rect(300,550,200,200);
   rect(0,500,300,500);
+  rect(650,520,500,500);
 
   fill("DarkGreen");
   noStroke();
@@ -88,6 +103,8 @@ function scene(){
   rect(450,680,200,200);
   rect(300,650,200,200);
   rect(0,560,300,500);
+  rect(650,720,500,500);
+
 
   fill("DarkGreen");
   noStroke();
