@@ -73,6 +73,7 @@ function draw() {
   translate(200, 200);
   circle(0, 0, 150)
   strokeWeight(5);
+  let numLines
   for(let i = 0; i < 4; i ++){
     line(0, 0, 70, 0);
   }
