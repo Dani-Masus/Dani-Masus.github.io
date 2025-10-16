@@ -20,9 +20,12 @@ function setup() {
     515, width * 0.3);
 
   // use a loop here to fill the array
+  for (i = 0; i > 5; i++){
 
-  bookshelf[0, 1, 2, 3, 4, 5] = new Book("CS30 Text", "Mr. Scott", random(13, 13),
-   random("softcover", "hardcover", "leatherbounf"), random(50,1000), width * 0.3);
+  
+
+    bookshelf[0, 1, 2, 3, 4, 5] = new Book();
+  }
 }
 
 function draw() {
