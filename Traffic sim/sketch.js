@@ -10,24 +10,56 @@ let car;
 
 
 
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  car = new Vehicle(200, 300, random(60, 150), random(20, 50));
+  car = new Vehicle(0, random(250, 400), 80, 35);
+
+  //multi cars
+   for (let c of car){
+     c.move();
+     c.display();
+   }
+
+
+  
 }
+
+
 
 function draw() {
   background(220);
   drawRoad();
+
+
+  //cars on the top
+  car.move();
   car.display();
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 function drawRoad(){
   //make a two lane road seperated by a yellow dashed line
-  fill("black");
+  fill("#202020");
   rect(0, 250, width, 400);
   fill("yellow");
   rect(0, 435, width, 10);
 }
+
+
 
 
 class Vehicle{
@@ -40,23 +72,61 @@ class Vehicle{
     this.xTime = random(10);  this.yTime = random(10);
     this.timeShift = 0.01;  this.maxSpeed = 5;
 
+    this.top = [];
+    this.bottom = [];
+  }
+
+
+
+
+
+
+  createCar(){
+    this.top.push(new Vehicle(this.x, this.y, this.w, this.h));
 
   }
+
+
+
+
+
 
   //2 class methods
   display(){
     fill(this.c);
     rect(this.x, this.y, this.w, this.h);
+    fill("LightYellow")
+    rect(this.x + this.w - 7, this.y, 7, 10);
+    rect(this.x + this.w - 7, this.y + this.h - 10, 7, 10);
+   
 
+    
   }
+
+
+
 
   move(){
-    let xSpeed = noise(this.xTime); 
-    xSpeed = map(xSpeed, 0, 1, -this.maxSpeed, this.maxSpeed);
-    this.xTime += this.timeShift;
+    this.x += this.maxSpeed;
 
-    this.x += xSpeed;
-    if(this.x < 0) this.x = width;
-    else if (this.x > width) this.x = 0;
+    //go back to the starting side
+    if(this.x > windowWidth) this.x = -this.w;
+    if (this.x + this.w < 0) this.x = windowWidth;
+
+    
+
+      
+    
   }
+
+
+
+
+
+  speedUp(){
+    
+  }
+  
 }
+
+
