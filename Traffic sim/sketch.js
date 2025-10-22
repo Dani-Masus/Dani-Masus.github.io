@@ -7,7 +7,7 @@
 
 //global variables
 let car;
-
+let eastBound=[];
 
 
 
@@ -15,11 +15,14 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   car = new Vehicle(0, random(250, 400), 80, 35);
 
+//do this 20x
+  eastBound.push(new Vehicle(0, random(250, 400), 80, 35));
+
   //multi cars
-   for (let c of car){
-     c.move();
-     c.display();
-   }
+  //  for (let c of this.topBound){
+  //    c.move();
+  //    c.display();
+  //  }
 
 
   
@@ -30,6 +33,9 @@ function setup() {
 function draw() {
   background(220);
   drawRoad();
+  //loop through eastbound
+  //   current.display()
+   //         .move()
 
 
   //cars on the top
@@ -72,8 +78,7 @@ class Vehicle{
     this.xTime = random(10);  this.yTime = random(10);
     this.timeShift = 0.01;  this.maxSpeed = 5;
 
-    this.top = [];
-    this.bottom = [];
+   
   }
 
 
@@ -81,10 +86,6 @@ class Vehicle{
 
 
 
-  createCar(){
-    this.top.push(new Vehicle(this.x, this.y, this.w, this.h));
-
-  }
 
 
 
