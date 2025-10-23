@@ -7,7 +7,8 @@
 
 //global variables
 let car;
-let eastBound=[];
+let eastBound = [];
+let westBound = [];
 
 
 
@@ -15,17 +16,17 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   car = new Vehicle(0, random(250, 400), 80, 35);
 
-//do this 20x
-  eastBound.push(new Vehicle(0, random(250, 400), 80, 35));
+  //do this 20x
 
-  //multi cars
-  //  for (let c of this.topBound){
-  //    c.move();
-  //    c.display();
-  //  }
+  for (let i = 0; i < 20; i++) {
+    eastBound.push(new Vehicle(random(0, 700), random(250, 400), 60, 35));
+  }
+
+  for (let i = 0; i < 20; i++) {
+    westBound.push(new Vehicle(random(0, 700), random(450, 620), 60, 35));
+  }
 
 
-  
 }
 
 
@@ -34,14 +35,16 @@ function draw() {
   background(220);
   drawRoad();
   //loop through eastbound
-  //   current.display()
-   //         .move()
+  for (let e of eastBound) {
+    e.display();
+    //e.move();
+  }
 
 
-  //cars on the top
-  car.move();
-  car.display();
-
+  for (let w of westBound) {
+    w.display();
+    //w.move();
+  }
 
 
 
@@ -57,7 +60,7 @@ function draw() {
 
 
 
-function drawRoad(){
+function drawRoad() {
   //make a two lane road seperated by a yellow dashed line
   fill("#202020");
   rect(0, 250, width, 400);
@@ -68,17 +71,17 @@ function drawRoad(){
 
 
 
-class Vehicle{
-  constructor(x,y, w, h) {
+class Vehicle {
+  constructor(x, y, w, h) {
     //properties related to position/display
     this.x = x; this.y = y; this.w = w; this.h = h;
-    this.c = color(random(255),random(255),random(255));
+    this.c = color(random(255), random(255), random(255));
 
     //properties related to movement
-    this.xTime = random(10);  this.yTime = random(10);
-    this.timeShift = 0.01;  this.maxSpeed = 5;
+    this.xTime = random(10); this.yTime = random(10);
+    this.timeShift = 0.01; this.maxSpeed = 5;
 
-   
+
   }
 
 
@@ -93,41 +96,52 @@ class Vehicle{
 
 
   //2 class methods
-  display(){
+  display() {
     fill(this.c);
     rect(this.x, this.y, this.w, this.h);
     fill("LightYellow")
     rect(this.x + this.w - 7, this.y, 7, 10);
     rect(this.x + this.w - 7, this.y + this.h - 10, 7, 10);
-   
 
-    
+    if (this.y > 410) {
+      rect(this.x + this.w - 7, this.y, 7, 10);
+      rect(this.x + this.w - 7, this.y + this.h - 10, 7, 10);
+    }
+
   }
 
 
 
 
-  move(){
-    this.x += this.maxSpeed;
+  move() {
+    //movement for eastbound and westBound
+
+    if (this.y < 400) {
+      this.x += this.maxSpeed;
+    }
+
+    if (this.y > 410) {
+      this.x -= this.maxSpeed;
+    }
+
 
     //go back to the starting side
-    if(this.x > windowWidth) this.x = -this.w;
+    if (this.x > windowWidth) this.x = -this.w;
     if (this.x + this.w < 0) this.x = windowWidth;
 
-    
 
-      
-    
+
+
   }
 
 
 
 
 
-  speedUp(){
-    
+  speedUp() {
+
   }
-  
+
 }
 
 
