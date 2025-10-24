@@ -23,7 +23,7 @@ function setup() {
   }
 
   for (let i = 0; i < 20; i++) {
-    westBound.push(new Vehicle(random(0, 700), random(450, 620), 60, 35));
+    westBound.push(new Vehicle(random(0, 700), random(450, 615), 60, 35));
   }
 
 
@@ -37,13 +37,13 @@ function draw() {
   //loop through eastbound
   for (let e of eastBound) {
     e.display();
-    //e.move();
+    e.move();
   }
 
 
   for (let w of westBound) {
     w.display();
-    //w.move();
+    w.move();
   }
 
 
@@ -100,12 +100,13 @@ class Vehicle {
     fill(this.c);
     rect(this.x, this.y, this.w, this.h);
     fill("LightYellow")
-    rect(this.x + this.w - 7, this.y, 7, 10);
-    rect(this.x + this.w - 7, this.y + this.h - 10, 7, 10);
-
-    if (this.y > 410) {
+    if(this.y <409){
       rect(this.x + this.w - 7, this.y, 7, 10);
       rect(this.x + this.w - 7, this.y + this.h - 10, 7, 10);
+    }
+    if (this.y > 410) {
+      rect(this.x + this.w - 60, this.y, 7,10);
+      rect(this.x + this.w - 60, this.y + this.h - 10, 7, 10);
     }
 
   }
@@ -139,7 +140,11 @@ class Vehicle {
 
 
   speedUp() {
+    if (random(0, 100) < 1){
+      this.maxSpeed += 1;
+    }
 
+    
   }
 
 }
