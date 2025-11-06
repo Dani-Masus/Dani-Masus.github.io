@@ -19,7 +19,7 @@ let squareSize = 170;
 
 function setup() {
   createCanvas(cols * squareSize, rows * squareSize);
-  
+  //RandomStart();
 }
 
 
@@ -28,15 +28,34 @@ function setup() {
 function draw() {
   background(220);
   renderGrid();
-  print(getCurrentX(), getCurrentY());
+  //print(getCurrentX(), getCurrentY());
+  if (winner() === true){
+    fill(100, 100, 100);
+    text("Winner!!", 100, 100)
+  }
+}
+
+
+function RandomStart(){
   
 }
 
 
+
+
+
 function winner(){
-  if (grid = fill(0)){
-    print("Winner!!!");
+  let win = grid[0][0]
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      if (grid[y][x] !== win){
+        print(x, y);
+        return false
+      }
+      
+    }
   }
+  return true
 }
 
 
