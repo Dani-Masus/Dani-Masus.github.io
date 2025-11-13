@@ -14,7 +14,10 @@ let westBound = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  
   car = new Vehicle(0, random(250, 400), 80, 35);
+
+
 
   //do this 20x
 
@@ -63,7 +66,7 @@ function drawRoad() {
   fill("#202020");
   rect(0, 250, width, 400);
   fill("yellow");
-  rect(0, 435, width, 10);
+  rect(0, 435, width, 8);
 }
 
 
@@ -85,6 +88,7 @@ class Vehicle {
 
 
   action(){
+    // A collection of the classes
     this.move();
     this.speedUp();
     this.display();
@@ -102,6 +106,7 @@ class Vehicle {
   display() {
     fill(this.c);
     rect(this.x, this.y, this.w, this.h);
+    //for the front lights
     fill("LightYellow")
     if(this.y <409){
       rect(this.x + this.w - 7, this.y, 7, 10);
@@ -114,6 +119,7 @@ class Vehicle {
 
   }
 
+  
 
 
 
@@ -143,7 +149,7 @@ class Vehicle {
 
 
   speedUp() {
-
+    //self explainatory - a chance speed up 
     if (random(0, 100) < 1){
       this.maxSpeed += 1;
      
@@ -154,6 +160,7 @@ class Vehicle {
   }
 
   speedDown(){
+    // What the top class said - a chance to slow down
     if (random(0,100) < 1){
       while (this.maxSpeed >= 5)
       this.maxSpeed -= 1;
