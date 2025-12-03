@@ -3,12 +3,13 @@
 // sept. 16, 2025
 
 
-
+let x = 400;
+let y = 400;
 
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
+  
   
 }
 
@@ -17,20 +18,32 @@ function draw() {
   fill("Yellow");
   stroke("Yellow");
   circle(mouseX, mouseY, 100); // the sun
-
   
-  //Stroke("LightGoldenRodYellow");
-
-  LightLeft();
-
-  noStroke();
-  noFill();
   
+
+  if (keyIsDown(LEFT_ARROW))  {
+    x = x-5;
+  }
+
+  if (keyIsDown(RIGHT_ARROW)){
+    x = x+5;
+  }
+
+  if (keyIsDown(DOWN_ARROW)){
+    y = y+5;
+  }
+
+  if (keyIsDown(UP_ARROW)){
+    y = y-5;
+  }
+
   lightWorld();
 
+ 
+  
+  protag();
   
 }
-
 
 
 
@@ -41,7 +54,11 @@ function draw() {
 function protag(){
   fill("Black");
 
-  //circle(50,250,10);
+  circle(x,y,80);
+
+  stroke("white");
+  circle(x-10,y-10,5);
+  circle(x+10,y-10,5);
 }
 
 
@@ -117,5 +134,5 @@ function lightWorld(){
   //Land shine from the sun
   fill("LightGoldenRodYellow");
   stroke("LightGoldenRodYellow");
-  rect(0,400,150,20);
+  //rect(0,400,150,20);
 }
