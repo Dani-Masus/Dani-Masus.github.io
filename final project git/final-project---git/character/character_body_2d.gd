@@ -8,7 +8,8 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 
 func _ready():
-	animation_tree.set("parameters/idle/blend_position", starting_direction)
+	#animation_tree.set("parameters/idle/blend_position", starting_direction)
+	update_animation_parameters(starting_direction)
 
 func _physics_process(_delta):
 
@@ -19,9 +20,18 @@ func _physics_process(_delta):
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")
 	);
+	
+	update_animation_parameters(input_direction)
+
 
 		#update velocity
 	velocity = input_direction * move_speed
 
 		#Move and slide function uses veloicty of characters to move
 	move_and_slide()
+
+func update_animation_parameters(move_input : Vector2):
+	#change animation parameters if there is no move input
+	if(move_input != Vector2.ZERO):
+		animation_tree.set("parameters/walk/blend_position", move_input)
+		animation_tree.set("parameters/idle/blend_position", move_input)
