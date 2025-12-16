@@ -29,10 +29,10 @@ func _physics_process(_delta):
 	velocity = input_direction * move_speed
 
 		#Move and slide function uses veloicty of characters to move
+	pick_new_state()
+	
 	move_and_slide()
 	
-	pick_new_state()
-
 func update_animation_parameters(move_input : Vector2):
 	#change animation parameters if there is no move input
 	if(move_input != Vector2.ZERO):

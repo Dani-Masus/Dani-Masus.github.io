@@ -9,6 +9,7 @@ size = Vector2(79.70001, 148.80002)
 [sub_resource type="Animation" id="Animation_q5p83"]
 resource_name = "Idle"
 length = 0.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -208,5 +209,5 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_q5p83")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Walk_Down/blend_position = Vector2(0, 0)
+parameters/Walk_Down/blend_position = Vector2(-0.27483445, 0.09372187)
 parameters/idle/blend_position = Vector2(-0.0036101341, -0.9717489)
