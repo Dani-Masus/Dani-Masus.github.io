@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bxkth3p2pvi1" path="res://Assets/character sprite/Eris Esra's Character Template 4.0/16x16/16x16 Rotate-Sheet.png" id="1_f706e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctgys"]
-size = Vector2(79.70001, 148.80002)
+size = Vector2(79.70001, 19.09999)
 
 [sub_resource type="Animation" id="Animation_q5p83"]
 resource_name = "Idle"
-length = 0.4
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -169,13 +169,13 @@ max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ur0en"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d6kbl"]
-advance_mode = 2
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d52ud"]
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d6kbl"]
+advance_mode = 0
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_q5p83"]
 states/End/position = Vector2(319, 200)
@@ -183,7 +183,7 @@ states/Walk_Down/node = SubResource("AnimationNodeBlendSpace2D_fo0mp")
 states/Walk_Down/position = Vector2(475, 100)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_ctgys")
 states/idle/position = Vector2(319, 100)
-transitions = ["idle", "Walk_Down", SubResource("AnimationNodeStateMachineTransition_ur0en"), "Walk_Down", "idle", SubResource("AnimationNodeStateMachineTransition_d6kbl"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_d52ud")]
+transitions = ["idle", "Walk_Down", SubResource("AnimationNodeStateMachineTransition_ur0en"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_d52ud"), "Walk_Down", "idle", SubResource("AnimationNodeStateMachineTransition_d6kbl")]
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(1, 0)
@@ -197,7 +197,7 @@ hframes = 3
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.15000153, 24.699993)
+position = Vector2(0.15000153, 89.54998)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_ctgys")
 
@@ -210,4 +210,4 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_q5p83")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Walk_Down/blend_position = Vector2(-0.27483445, 0.09372187)
-parameters/idle/blend_position = Vector2(-0.0036101341, -0.9717489)
+parameters/idle/blend_position = Vector2(0, -0.9914798)
