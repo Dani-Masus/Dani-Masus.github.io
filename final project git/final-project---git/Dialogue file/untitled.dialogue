@@ -1,0 +1,25 @@
+~ start
+G: I should catch up on my pratice books
+Bookshelf: Yeah, you should
+- Pretend this is normal
+	G: [wait=1].[wait=1].[wait=1]. alright.
+	- => Choose book
+- Refuse taking knowledge!
+	G: My bookshelf is possesed again... AAAHHHHHHHHHH!!!!
+	- End the conversation => END!
+
+
+
+
+~ Snippet
+G: Which should i read today?
+- Combat book 
+	Combat
+- Barter book
+	Trade
+- Refuse knowledge from the demonic shelf! (Last Chance)
+	G: Nevermind. i hate learning.
+	=> END!
+
+
+=> END!
