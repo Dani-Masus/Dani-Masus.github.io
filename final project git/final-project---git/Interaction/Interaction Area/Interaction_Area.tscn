@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cslx4d6olfnhv" path="res://Interaction/Interaction Area/interaction_area.gd" id="1_5tqwx"]
 
 [node name="InteractionArea" type="Node2D"]
+scale = Vector2(-2640.0613, 273.6579)
 script = ExtResource("1_5tqwx")

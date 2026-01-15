@@ -9,14 +9,14 @@ extends CharacterBody2D
 @onready var state_machine = animation_tree.get("parameters/playback")
 
 #Interacton with bookshelf
-@onready var interaction_area: InteractionArea = $InteractioArea
-@onready var sprite = $AnimatedSprite2D
+@onready var interaction_area: InteractionArea = $InteractionArea
+@onready var sprite = $Sprite2D
 
 
 
 
 func _ready():
-	#animation_tree.set("parameters/idle/blend_position", starting_direction)
+	animation_tree.set("parameters/idle/blend_position", starting_direction)
 	update_animation_parameters(starting_direction)
 	interaction_area.interact = Callable(self, "_on_interact")
 
@@ -62,6 +62,6 @@ const lines: Array[String] = [
 ]
 
 func _on_interact():
-	DialogManager.start_dialog(global_position, lines)
+	InteractionManger.start_dialog(global_position, lines)
 	sprite.flip_h = true if interaction_area.get_overlapping_bodies()[0].global_position.x else false
-	await DialogManager.dialog_finished
+	await InteractionManger.dialog_finished
